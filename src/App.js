@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import FieldContainer from './components/FieldContainer';
 import TextField from './components/TextField';
@@ -35,10 +35,14 @@ class App extends Component {
   };
   
   handleCreateGrid = () => {
-    this.state.gridSize >= 3 ? this.setState({
-      items: createFields(this.state.gridSize),
-      started: true,
-    }) : this.setState({
+    this.state.gridSize >= 3 ?
+      this.state.gridSize <= 40 ?
+        this.setState({
+          items: createFields(this.state.gridSize),
+          started: true,
+        }) : this.setState({
+        error: 'Grid size should be not more then 40',
+      }) : this.setState({
       error: 'Grid size should be at least 3',
     });
     
@@ -103,9 +107,9 @@ class App extends Component {
               onChange={this.handleGridSizeChange}
               error={this.state.error}
             />
-            <Button onClick={this.handleCreateGrid} />
+            <Button onClick={this.handleCreateGrid}/>
           </TextFieldContainer>
-          
+        
         )}
       </div>
     );
