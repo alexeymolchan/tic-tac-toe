@@ -10,7 +10,7 @@ injectGlobal`
     background-color: #FFF;
     font-family: Source Sans Pro, sans-serif;
     font-size: 16px;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex: 1;
 	}
